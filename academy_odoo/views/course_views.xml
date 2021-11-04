@@ -7,7 +7,7 @@
             <field name="arch" type="xml">
                 <form string="Course Form">
                     <sheet>
-                        <h1><field name="name"</h1>
+                        <h1><field name="name"></h1>
                         <group>
                             <group>
                                 <field name="active"/>                            
