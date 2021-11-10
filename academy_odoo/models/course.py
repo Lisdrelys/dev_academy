@@ -1,11 +1,11 @@
-# _*_ coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
 from odoo.exceptions import UserError, ValidationError
 
 class Course(models.Model):
     _name = 'academy.course'
-    _description = 'Academy Course Model'
+    _description = 'Academy Course Model Info'
     
     name = fields.Char(string='Title', required=True)
     description = fields.Text(string='Description')
@@ -23,7 +23,7 @@ class Course(models.Model):
     @api.onchange('base_price', 'additional_fee')
     def _onchange_total_price(self):
         if self.base_price < 0.0:
-            raise UserError('Base price cannot be set negative.')
+            raise UserError('Base price cannot be set as negative.')
         self.total_price = self.base_price + self.additional_fee
     
     @api.constrains('additional_fee')
